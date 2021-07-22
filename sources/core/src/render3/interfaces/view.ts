@@ -328,6 +328,11 @@ export interface LView extends Array<any> {
   [TRANSPLANTED_VIEWS_TO_REFRESH]: number;
 }
 
+
+///////////////////////////////
+// ## LViewFlagsSourceCode
+///////////////////////////////
+
 /** Flags associated with an LView (saved in LView[FLAGS]) */
 export const enum LViewFlags {
   /** The state of the init phase on the first 2 bits */

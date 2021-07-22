@@ -1,6 +1,5 @@
 dist
 test
-docs
 testing
 **/*.bazel
 **/*.bzl

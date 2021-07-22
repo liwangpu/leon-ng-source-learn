@@ -15,6 +15,9 @@ import {CONTEXT, FLAGS, LView, LViewFlags, TVIEW} from './interfaces/view';
 import {destroyLView, renderDetachView} from './node_manipulation';
 
 
+///////////////////////////////
+// ## ViewRefSourceCode
+///////////////////////////////
 
 // Needed due to tsickle downleveling where multiple `implements` with classes creates
 // multiple @extends in Closure annotations, which is illegal. This workaround fixes

@@ -1823,14 +1823,14 @@ export function addToViewTree<T extends LView|LContainer>(lView: LView, lViewOrL
   return lViewOrLContainer;
 }
 
-///////////////////////////////
-//// Change detection
-///////////////////////////////
 
+///////////////////////////////
+// ## markViewDirtySourceCode
+///////////////////////////////
 
 /**
  * Marks current view and all ancestors dirty.
- *
+ * 
  * Returns the root view because it is found as a byproduct of marking the view tree
  * dirty, and can be used by methods that consume markViewDirty() to easily schedule
  * change detection. Otherwise, such methods would need to traverse up the view tree
