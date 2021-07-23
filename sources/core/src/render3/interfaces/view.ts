@@ -329,10 +329,6 @@ export interface LView extends Array<any> {
 }
 
 
-///////////////////////////////
-// ## LViewFlagsSourceCode
-///////////////////////////////
-
 /** Flags associated with an LView (saved in LView[FLAGS]) */
 export const enum LViewFlags {
   /** The state of the init phase on the first 2 bits */

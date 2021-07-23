@@ -1823,11 +1823,6 @@ export function addToViewTree<T extends LView|LContainer>(lView: LView, lViewOrL
   return lViewOrLContainer;
 }
 
-
-///////////////////////////////
-// ## markViewDirtySourceCode
-///////////////////////////////
-
 /**
  * Marks current view and all ancestors dirty.
  * 

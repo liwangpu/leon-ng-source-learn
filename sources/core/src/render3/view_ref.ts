@@ -6,28 +6,24 @@
  * found in the LICENSE file at https://angular.io/license
  */
 
-import {ChangeDetectorRef as viewEngine_ChangeDetectorRef} from '../change_detection/change_detector_ref';
-import {ViewContainerRef as viewEngine_ViewContainerRef} from '../linker/view_container_ref';
-import {EmbeddedViewRef as viewEngine_EmbeddedViewRef, InternalViewRef as viewEngine_InternalViewRef, ViewRefTracker} from '../linker/view_ref';
-import {collectNativeNodes} from './collect_native_nodes';
-import {checkNoChangesInRootView, checkNoChangesInternal, detectChangesInRootView, detectChangesInternal, markViewDirty, storeCleanupWithContext} from './instructions/shared';
-import {CONTEXT, FLAGS, LView, LViewFlags, TVIEW} from './interfaces/view';
-import {destroyLView, renderDetachView} from './node_manipulation';
+import { ChangeDetectorRef as viewEngine_ChangeDetectorRef } from '../change_detection/change_detector_ref';
+import { ViewContainerRef as viewEngine_ViewContainerRef } from '../linker/view_container_ref';
+import { EmbeddedViewRef as viewEngine_EmbeddedViewRef, InternalViewRef as viewEngine_InternalViewRef, ViewRefTracker } from '../linker/view_ref';
+import { collectNativeNodes } from './collect_native_nodes';
+import { checkNoChangesInRootView, checkNoChangesInternal, detectChangesInRootView, detectChangesInternal, markViewDirty, storeCleanupWithContext } from './instructions/shared';
+import { CONTEXT, FLAGS, LView, LViewFlags, TVIEW } from './interfaces/view';
+import { destroyLView, renderDetachView } from './node_manipulation';
 
-
-///////////////////////////////
-// ## ViewRefSourceCode
-///////////////////////////////
 
 // Needed due to tsickle downleveling where multiple `implements` with classes creates
 // multiple @extends in Closure annotations, which is illegal. This workaround fixes
 // the multiple @extends by making the annotation @implements instead
-export interface viewEngine_ChangeDetectorRef_interface extends viewEngine_ChangeDetectorRef {}
+export interface viewEngine_ChangeDetectorRef_interface extends viewEngine_ChangeDetectorRef { }
 
 export class ViewRef<T> implements viewEngine_EmbeddedViewRef<T>, viewEngine_InternalViewRef,
-                                   viewEngine_ChangeDetectorRef_interface {
-  private _appRef: ViewRefTracker|null = null;
-  private _viewContainerRef: viewEngine_ViewContainerRef|null = null;
+  viewEngine_ChangeDetectorRef_interface {
+  private _appRef: ViewRefTracker | null = null;
+  private _viewContainerRef: viewEngine_ViewContainerRef | null = null;
 
   get rootNodes(): any[] {
     const lView = this._lView;
@@ -36,26 +32,26 @@ export class ViewRef<T> implements viewEngine_EmbeddedViewRef<T>, viewEngine_Int
   }
 
   constructor(
-      /**
-       * This represents `LView` associated with the component when ViewRef is a ChangeDetectorRef.
-       *
-       * When ViewRef is created for a dynamic component, this also represents the `LView` for the
-       * component.
-       *
-       * For a "regular" ViewRef created for an embedded view, this is the `LView` for the embedded
-       * view.
-       *
-       * @internal
-       */
-      public _lView: LView,
+    /**
+     * This represents `LView` associated with the component when ViewRef is a ChangeDetectorRef.
+     *
+     * When ViewRef is created for a dynamic component, this also represents the `LView` for the
+     * component.
+     *
+     * For a "regular" ViewRef created for an embedded view, this is the `LView` for the embedded
+     * view.
+     *
+     * @internal
+     */
+    public _lView: LView,
 
-      /**
-       * This represents the `LView` associated with the point where `ChangeDetectorRef` was
-       * requested.
-       *
-       * This may be different from `_lView` if the `_cdRefInjectingView` is an embedded view.
-       */
-      private _cdRefInjectingView?: LView) {}
+    /**
+     * This represents the `LView` associated with the point where `ChangeDetectorRef` was
+     * requested.
+     *
+     * This may be different from `_lView` if the `_cdRefInjectingView` is an embedded view.
+     */
+    private _cdRefInjectingView?: LView) { }
 
   get context(): T {
     return this._lView[CONTEXT] as T;
@@ -83,6 +79,7 @@ export class ViewRef<T> implements viewEngine_EmbeddedViewRef<T>, viewEngine_Int
   onDestroy(callback: Function) {
     storeCleanupWithContext(this._lView[TVIEW], this._lView, null, callback);
   }
+
 
   /**
    * Marks a view and all of its ancestors dirty.
